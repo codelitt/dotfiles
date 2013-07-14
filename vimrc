@@ -1,0 +1,1 @@
+/home/codelitt/.vimrc
