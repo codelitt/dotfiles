@@ -1,1 +1,3 @@
-/home/codelitt/.bash_profile
+#!/bin/sh
+
+source ~/.bashrc
