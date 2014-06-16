@@ -1,19 +1,8 @@
-syntax on
-colorscheme eddie
-set ts=2 sts=2 sw=2 expandtab
-set t_Co=256
-set history=1000
-set incsearch
-set number
-set scrolloff=5
-set ignorecase
-set encoding=utf-8
-au VimEnter * NERDTree
-set nocompatible " be iMproved
- filetype off " required!
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
@@ -27,12 +16,28 @@ set rtp+=~/.vim/bundle/vundle/
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'tpope/vim-haml.git'
  Bundle 'tpope/vim-markdown.git'
-" vim-scripts repos
+ Bundle 'groenewege/vim-less.git' 
+ Bundle 'slim-template/vim-slim.git'
+ Bundle 'Blackrush/vim-gocode'
+ Bundle 'kchmck/vim-coffee-script'
+ " vim-scripts repos
 " non github repos
 " ...
-
- filetype plugin indent on " required!
-"
+  syntax enable
+  colorscheme eddie
+  set ts=2 sts=2 sw=2 expandtab
+  set t_Co=256
+  set history=1000
+  set incsearch
+  set number
+  set scrolloff=5
+  set ignorecase
+  set encoding=utf-8
+  au VimEnter * NERDTree
+  "filetype off " required!
+  filetype plugin on
+  filetype plugin indent on " required!
+  "
 " Brief help
 " :BundleList - list configured bundles
 " :BundleInstall(!) - install(update) bundles
