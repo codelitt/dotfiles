@@ -6,8 +6,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
- Bundle 'gmarik/vundle'
-
+Bundle 'gmarik/Vundle.vim'
 " My Bundles here:
 "
 " original repos on github
@@ -20,12 +19,18 @@ call vundle#rc()
  Bundle 'slim-template/vim-slim.git'
  Bundle 'Blackrush/vim-gocode'
  Bundle 'kchmck/vim-coffee-script'
+ Bundle 'Valloric/YouCompleteMe'
+ Bundle 'Lokaltog/vim-easymotion'
+ Bundle 'majutsushi/tagbar'
+
+
  " vim-scripts repos
 " non github repos
 " ...
   syntax enable
   colorscheme eddie
   set ts=2 sts=2 sw=2 expandtab
+  set backspace=2 
   set t_Co=256
   set history=1000
   set incsearch
