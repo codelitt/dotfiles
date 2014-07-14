@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -22,6 +22,11 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'Valloric/YouCompleteMe'
  Bundle 'Lokaltog/vim-easymotion'
  Bundle 'majutsushi/tagbar'
+ Bundle 'ap/vim-css-color'
+ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+
+
 
 
  " vim-scripts repos
