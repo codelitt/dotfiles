@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
@@ -24,16 +24,28 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'majutsushi/tagbar'
  Bundle 'ap/vim-css-color'
  Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+ Bundle 'altercation/vim-colors-solarized'
 
-
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 
 
 
  " vim-scripts repos
 " non github repos
 " ...
+"
+
+  "Powerline setting
+  set laststatus=2
+
+"Colours, syntaxes and vim settings
   syntax enable
-  colorscheme eddie
+  colorscheme solarized
+  set background=dark
   set ts=2 sts=2 sw=2 expandtab
   set backspace=2 
   set t_Co=256
@@ -46,7 +58,6 @@ Bundle 'gmarik/Vundle.vim'
   au VimEnter * NERDTree
   "filetype off " required!
   filetype plugin on
-  filetype plugin indent on " required!
   "
 " Brief help
 " :BundleList - list configured bundles
