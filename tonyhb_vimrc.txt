@@ -1,0 +1,427 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" Plugins here
+
+Bundle 'rking/ag.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdtree'
+Bundle 'https://github.com/kien/ctrlp.vim.git'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'majutsushi/tagbar'
+Bundle 'Gundo'
+Bundle 'YankRing.vim'
+Bundle 'ap/vim-css-color'
+Bundle 'Lokaltog/powerline'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'pangloss/vim-javascript'
+Bundle 'airblade/vim-gitgutter'
+
+Bundle 'Blackrush/vim-gocode'
+
+" To learn properly
+Bundle 'joonty/vdebug.git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-git'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'msanders/snipmate.vim'
+Bundle 'rking/ag.vim'
+Bundle 'claco/jasmine.vim'
+" END LEARN
+
+" Syntax bundles
+Bundle 'puppetlabs/puppet-syntax-vim'
+" Bundle 'jnwhiteh/vim-golang' " Not compatible with vim-gocode, which uses
+" Gocode's autocomplete.
+Bundle 'othree/html5-syntax.vim'
+Bundle 'tpope/vim-haml'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'lukaszkorecki/coffeetags'
+Bundle 'tpope/vim-markdown'
+Bundle 'juvenn/mustache.vim'
+Bundle 'cespare/vim-toml'
+Bundle 'slim-template/vim-slim'
+" Bundle 'gudleik/vim-slim'
+
+" General settings
+syntax on
+colorscheme solarized
+set laststatus=2
+set background=dark
+set encoding=utf-8
+set modelines=0
+set showmode
+set showcmd
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set number
+set history=1000
+set listchars=tab:▒░,eol:¬,extends:❯,precedes:❮
+set listchars=tab:··,eol:¬,extends:❯,precedes:❮
+set listchars=tab:░░,eol:¬,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set nolist
+set showbreak=↪
+set shell=/bin/zsh
+set lazyredraw
+set dictionary=/usr/share/dict/words
+set fillchars=diff:⣿
+
+set pastetoggle=<F8>
+
+" Cronfiles
+set backupskip=/tmp/*,/private/tmp/*"
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Tabs and text
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+
+" Backups
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+
+" Leader
+let mapleader = ","
+
+" OTHER SHIT  -------------------------------------------------------------- {{{
+
+" Clean whitespace
+map <leader>W  :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Substitute
+nnoremap <leader>s :%s//<left>
+
+" Yankring
+nnoremap <silent> <F6> :YRShow<cr>
+
+" Less chording
+nnoremap ; :
+
+" Faster Esc
+inoremap jk <esc>
+
+" Tab navigation
+map <C-left> :tabp<cr>
+map <C-right> :tabn<cr>
+
+" Fuck ex mode
+map Q q
+
+" }}}
+" Searches    -------------------------------------------------------------- {{{
+
+nnoremap / /\v
+vnoremap / /\v
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+set gdefault
+
+set scrolloff=5
+set sidescroll=1
+set sidescrolloff=10
+
+set virtualedit+=block
+
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+
+" Keep things in the middle of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
+" Don't move on *
+nnoremap * *<c-o>
+" }}}
+
+" Folding ------------------------------------------------------------------ {{{
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+"}}}
+
+" Directions --------------------------------------------------------------- {{{
+noremap j gj
+noremap k gk
+
+" Buffers
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+noremap <leader>v <C-w>v
+
+vnoremap < <gv
+vnoremap > >gv
+
+" Fuck you, help key.
+noremap  <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+
+" Fuck you too, manual key.
+nnoremap K <nop>
+
+" Stop it, hash key.
+inoremap # X<BS>#
+
+let g:syntastic_enable_signs=1
+
+" }}}
+
+" Easymotion {{{
+
+let g:EasyMotion_do_mapping = 0
+
+nnoremap <silent> <Leader>f      :call EasyMotion#F(0, 0)<CR>
+onoremap <silent> <Leader>f      :call EasyMotion#F(0, 0)<CR>
+vnoremap <silent> <Leader>f :<C-U>call EasyMotion#F(1, 0)<CR>
+
+nnoremap <silent> <Leader>F      :call EasyMotion#F(0, 1)<CR>
+onoremap <silent> <Leader>F      :call EasyMotion#F(0, 1)<CR>
+vnoremap <silent> <Leader>F :<C-U>call EasyMotion#F(1, 1)<CR>
+
+onoremap <silent> <Leader>t      :call EasyMotion#T(0, 0)<CR>
+onoremap <silent> <Leader>T      :call EasyMotion#T(0, 1)<CR>
+
+" }}}
+
+noremap <leader>t :CtrlP<CR>
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.(git|hg|svn)|vendor'
+
+function! IgnoreJS()
+	let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.(git|hg|svn)|vendor|*.js'
+endfunction
+
+" Gundo {{{
+
+nnoremap <F7> :GundoToggle<CR>
+let g:gundo_debug = 1
+let g:gundo_preview_bottom = 1
+
+" }}}
+
+" NERD Tree {{{
+
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
+
+au Filetype nerdtree setlocal nolist
+
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json', '.*\.o$', 'db.db', '.psd', '.DS_Store', '\.vagrant']
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" }}}
+"
+" Tagbar {{{
+
+noremap  <F3> :TagbarToggle<cr>
+inoremap <F3> <esc>:TagbarToggle<cr>
+
+" }}}
+" YankRing {{{
+function! YRRunAfterMaps()
+    nnoremap Y :<C-U>YRYankCount 'y$'<CR>
+    omap <expr> L YRMapsExpression("", "$")
+    omap <expr> H YRMapsExpression("", "^")
+endfunction
+
+let g:yankring_history_dir='/Users/tonyhb/.vim/tmp/'
+" }}}
+
+" Powerline {{{
+let g:Powerline_symbols = 'fancy'
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" }}}
+
+" Zoomwin {{{
+noremap <leader>o :ZoomWin<CR>
+" }}}
+
+" Fugitive {{{
+noremap <F4> :Gstatus<CR>
+noremap <leader>g :Gdiff<CR>
+noremap <leader>c :Gcommit<CR>
+" }}}
+
+" Various filetype-specific stuff ----------------------------------------- {{{
+" HTML and HTMLDjango {{{
+
+augroup ft_html
+    au!
+
+    au BufNewFile,BufRead *.html setlocal filetype=htmldjango
+    au FileType html,jinja,htmldjango setlocal foldmethod=manual
+
+    " Use <localleader>f to fold the current tag.
+    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>f Vatzf
+
+    " Use Shift-Return to turn this:
+    "     <tag>|</tag>
+    "
+    " into this:
+    "     <tag>
+    "         |
+    "     </tag>
+    au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
+
+    " Smarter pasting
+    au FileType html,jinja,htmldjango nnoremap <buffer> p :<C-U>YRPaste 'p'<CR>v`]=`]
+    au FileType html,jinja,htmldjango nnoremap <buffer> P :<C-U>YRPaste 'P'<CR>v`]=`]
+    au FileType html,jinja,htmldjango nnoremap <buffer> π :<C-U>YRPaste 'p'<CR>
+    au FileType html,jinja,htmldjango nnoremap <buffer> ∏ :<C-U>YRPaste 'P'<CR>
+
+    " Django tags
+    au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
+
+    " Django variables
+    au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
+
+	au FileType html,jinka,htmldjango setlocal expandtab
+	au FileType html,jinka,htmldjango setlocal tabstop=2
+	au FileType html,jinka,htmldjango setlocal softtabstop=2
+	au FileType html,jinka,htmldjango setlocal shiftwidth=2
+augroup END
+
+" }}}
+" Javascript {{{
+
+augroup ft_javascript
+    au!
+
+    au FileType javascript setlocal foldmethod=marker
+    au FileType javascript setlocal foldmarker={,}
+	au FileType javascript setlocal expandtab
+	au FileType javascript setlocal tabstop=2
+	au FileType javascript setlocal softtabstop=2
+	au FileType javascript setlocal shiftwidth=2
+augroup END
+
+" }}}
+" PHP {{{
+
+augroup ft_php
+    au!
+
+    au FileType php setlocal foldmethod=marker
+    au FileType php setlocal foldmarker={,}
+	au FileType php setlocal expandtab
+	au FileType php setlocal tabstop=4
+	au FileType php setlocal softtabstop=4
+	au FileType php setlocal shiftwidth=4
+augroup END
+
+" }}}
+" Ruby {{{
+
+augroup ft_ruby,ft_eruby
+    au!
+
+    au FileType ruby,eruby setlocal foldmethod=indent
+	au FileType ruby,eruby setlocal expandtab
+	au FileType ruby,eruby setlocal tabstop=2
+	au FileType ruby,eruby setlocal softtabstop=2
+	au FileType ruby,eruby setlocal shiftwidth=2
+augroup END
+" Coffee {{{
+
+augroup ft_coffee,ft_coffeescript
+    au!
+
+    au FileType coffee setlocal foldmethod=indent
+	au FileType coffee setlocal expandtab
+	au FileType coffee setlocal tabstop=2
+	au FileType coffee setlocal softtabstop=2
+	au FileType coffee setlocal shiftwidth=2
+augroup END
+
+
+augroup ft_go
+	au!
+
+	au FileType go setlocal nolist
+augroup END
+
+" }}}
+"
+" TAGBAR  ----------------------------------------------------------------- {{{
+" Go  
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" CoffeeScript
+
+let g:tagbar_type_coffee = {
+    \ 'ctagstype' : 'coffee',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 'm:methods',
+        \ 'f:functions',
+        \ 'v:variables',
+        \ 'f:fields',
+    \ ]
+\ }
+
+" }}}
+
+" Required for Vundle
+filetype plugin indent on     " required!
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
