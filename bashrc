@@ -62,5 +62,10 @@ source ~/.git-completion.bash
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+#Go specific
+export GOPATH=~/projects/go
+export PATH=~/projects/go/bin:$PATH
+
+
 # Set vim mode
 set -o vi

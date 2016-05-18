@@ -17,14 +17,14 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'tpope/vim-markdown.git'
  Bundle 'groenewege/vim-less.git' 
  Bundle 'slim-template/vim-slim.git'
- Bundle 'Blackrush/vim-gocode'
  Bundle 'kchmck/vim-coffee-script'
  Bundle 'Valloric/YouCompleteMe'
  Bundle 'Lokaltog/vim-easymotion'
- Bundle 'majutsushi/tagbar'
  Bundle 'ap/vim-css-color'
  Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
  Bundle 'altercation/vim-colors-solarized'
+ Bundle 'fatih/vim-go'
+ Bundle 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,13 +42,19 @@ filetype plugin indent on    " required
   "Powerline setting
   set laststatus=2
 
-"Colours, syntaxes and vim settings
+"Colours, syntaxes and vim settings 
   syntax enable
-  colorscheme solarized
   set background=dark
+  let g:solarized_termtrans=1
+  "let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  "colorscheme solarized
+  "colorscheme elflord
+  "colorscheme industry
+  colorscheme torte
+  set t_Co=256
   set ts=2 sts=2 sw=2 expandtab
   set backspace=2 
-  set t_Co=256
   set history=1000
   set incsearch
   set number
@@ -58,7 +64,12 @@ filetype plugin indent on    " required
   au VimEnter * NERDTree
   "filetype off " required!
   filetype plugin on
-  "
+
+  "Key mapping
+  nmap <F8> :TagbarToggle<CR>
+
+
+
 " Brief help
 " :BundleList - list configured bundles
 " :BundleInstall(!) - install(update) bundles
