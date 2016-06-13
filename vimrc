@@ -25,6 +25,8 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'fatih/vim-go'
  Bundle 'majutsushi/tagbar'
+ Bundle 'pangloss/vim-javascript'
+ Bundle 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,6 +63,7 @@ filetype plugin indent on    " required
   set scrolloff=5
   set ignorecase
   set encoding=utf-8
+  set paste
   au VimEnter * NERDTree
   "filetype off " required!
   filetype plugin on
