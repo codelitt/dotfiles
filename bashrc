@@ -57,15 +57,17 @@ alias ls='ls --color=auto'
 
 export TERM=screen-256color-bce
 
-
 source ~/.git-completion.bash
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 #Go specific
 export GOPATH=~/projects/go
 export PATH=~/projects/go/bin:$PATH
 
-
 # Set vim mode
 set -o vi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export VISUAL="vim"
+
+###Font is Fira Mono with Solarized Dark Higher Contrast for bash
