@@ -61,12 +61,13 @@ source ~/.git-completion.bash
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 #Go specific
-export GOPATH=~/projects/go
-export PATH=~/projects/go/bin:$PATH
+export GOPATH=~/go                                                                                                                                                         
+export PATH=$PATH:~/go/bin    
 
 # Set vim mode
 set -o vi
 
+#RVM/Ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export VISUAL="vim"
 
