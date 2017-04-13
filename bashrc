@@ -61,8 +61,8 @@ source ~/.git-completion.bash
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 #Go specific
-export GOPATH=~/go                                                                                                                                                         
-export PATH=$PATH:~/go/bin    
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
 
 # Set vim mode
 set -o vi
@@ -72,3 +72,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export VISUAL="vim"
 
 ###Font is Fira Mono with Solarized Dark Higher Contrast for bash
+
+##Aliases
+alias todos='grep --exclude-dir=vendor -rnw '.' -e @TODO'
+alias gitClean='git branch --merged | grep -v "\*" | grep -v develop | grep -v dev | xargs -n 1 git branch -d && git fetch -p'

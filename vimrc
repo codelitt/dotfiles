@@ -28,6 +28,7 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'pangloss/vim-javascript'
  Bundle 'mxw/vim-jsx'
  Bundle 'mattn/emmet-vim'
+ Bundle 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,14 +68,13 @@ filetype plugin indent on    " required
   set paste
   au VimEnter * NERDTree
   "filetype off " required!
-  filetype plugin on
+  filetype plugin off
 
   "Key mapping
   nmap <F8> :TagbarToggle<CR>
 
 	"Sets the tab key to use all autocompletion options from VimCompletesMe
 	autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-
 
 
 
