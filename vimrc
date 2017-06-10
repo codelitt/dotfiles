@@ -13,11 +13,8 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'vim-ruby/vim-ruby.git'
  Bundle 'tpope/vim-rails.git'
  Bundle 'scrooloose/nerdtree.git'
- Bundle 'tpope/vim-haml.git'
  Bundle 'tpope/vim-markdown.git'
- Bundle 'groenewege/vim-less.git' 
- Bundle 'slim-template/vim-slim.git'
- Bundle 'kchmck/vim-coffee-script'
+ Bundle 'groenewege/vim-less.git'
  Bundle 'Lokaltog/vim-easymotion'
  Bundle 'ajh17/VimCompletesMe'
  Bundle 'ap/vim-css-color'
@@ -29,6 +26,7 @@ Bundle 'gmarik/Vundle.vim'
  Bundle 'mxw/vim-jsx'
  Bundle 'mattn/emmet-vim'
  Bundle 'ntpeters/vim-better-whitespace'
+ Bundle 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +44,7 @@ filetype plugin indent on    " required
   "Powerline setting
   set laststatus=2
 
-"Colours, syntaxes and vim settings 
+"Colours, syntaxes and vim settings
   syntax enable
   set background=dark
   let g:solarized_termtrans=1
@@ -58,7 +56,7 @@ filetype plugin indent on    " required
   colorscheme torte
   set t_Co=256
   set ts=2 sts=2 sw=2 expandtab
-  set backspace=2 
+  set backspace=2
   set history=1000
   set incsearch
   set number
