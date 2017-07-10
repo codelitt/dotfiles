@@ -57,6 +57,9 @@ alias ls='ls --color=auto'
 
 export TERM=screen-256color-bce
 
+#Keychain specific
+eval $(keychain --eval --quiet id_rsa)
+
 source ~/.git-completion.bash
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -76,3 +79,11 @@ export VISUAL="vim"
 ##Aliases
 alias todos='grep --exclude-dir=vendor -rnw '.' -e @TODO'
 alias gitClean='git branch --merged | grep -v "\*" | grep -v develop | grep -v dev | xargs -n 1 git branch -d && git fetch -p'
+#docker
+alias dkrm='sudo docker rm'
+alias dkrmi='sudo docker rmi'
+alias dkps='sudo docker ps'
+alias dki='sudo docker images'
+
+# Purge! Purge the nonbelievers!
+alias dkprga='dkcd && dkrm $(dkps -q) && dkrmi $(dki)'
